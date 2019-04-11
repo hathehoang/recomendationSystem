@@ -95,12 +95,12 @@ def reTrainMatrix():
     global list_new_item
 
     "import data frame of article"
-    articles_df = pd.read_csv('http://phibious-uat-post.futurify.io/new_post.csv', encoding = "ISO-8859-1")  #change to uat - sit
+    articles_df = pd.read_csv('', encoding = "ISO-8859-1")  #change to uat - sit
     articles_df = articles_df[articles_df["contentId"] > 0]
     "Fake datetim"
     articles_df['createdDate'] = articles_df.apply(lambda x: fake_created_date(contentId = x['contentId']), axis = 1)
     "import data frame of user interaction"
-    interactions_df = pd.read_csv('http://phibious-uat-post.futurify.io/newInteraction.csv', encoding = "ISO-8859-1") #change to uat- sit
+    interactions_df = pd.read_csv('', encoding = "ISO-8859-1") #change to uat- sit
   
     interactions_df['eventType'] = interactions_df.apply(lambda x: get_event_strength(x = x['eventType'], duration = x['durationInMilisecond']), axis=1)
     interactions_df = interactions_df[interactions_df['eventType'] != 'nothing']
